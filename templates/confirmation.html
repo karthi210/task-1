@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h2>🎉 Booking Confirmed!</h2>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Thank you, {{ booking.name }}!</h5>
+        <p class="card-text">
+            <strong>Booking Reference:</strong> {{ booking.ref }}<br>
+            <strong>Event:</strong> {{ booking.event_title }}<br>
+            <strong>Number of Tickets:</strong> {{ booking.quantity }}<br>
+            <strong>Email:</strong> {{ booking.email }}
+        </p>
+        <p class="card-text">We have sent a confirmation email to your address. See you at the event!</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Browse More Events</a>
+    </div>
+</div>
+{% endblock %}

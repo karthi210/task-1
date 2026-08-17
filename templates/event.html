@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{ event.image }}" class="img-fluid" alt="{{ event.title }}">
+    </div>
+    <div class="col-md-6">
+        <h1>{{ event.title }}</h1>
+        <p>{{ event.description }}</p>
+        <p><strong>Available Tickets:</strong> {{ event.available_tickets }}</p>
+        <a href="{{ url_for('book_tickets', event_id=event.id) }}" class="btn btn-success btn-lg">Book Now</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Events</a>
+    </div>
+</div>
+{% endblock %}

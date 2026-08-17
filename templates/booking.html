@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Book Tickets for: {{ event.title }}</h1>
+<div class="row">
+    <div class="col-md-6">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Number of Tickets</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ event.available_tickets }}" value="1" required>
+                <div class="form-text">Maximum {{ event.available_tickets }} tickets available.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
