@@ -29,11 +29,11 @@ pipeline {
             }
         }
     }
-}
-post {
+    post {
            always {
                 mail to: 'karthick2105c@gmail.com',
                 subject: "PIPELINE STATUS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} \n build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL} "
            }
-       }
+    }
+}
